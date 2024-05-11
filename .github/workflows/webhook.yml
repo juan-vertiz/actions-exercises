@@ -7,6 +7,11 @@ on:
       - test
 
 jobs:
+  log:
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo ${{ github.event }}'
+
   deploy:
     if: ${{ github.event.event_type == 'deploy' }}
     runs-on: ubuntu-latest
