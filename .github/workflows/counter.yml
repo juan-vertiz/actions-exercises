@@ -2,6 +2,12 @@ name: Counter
 
 on:
   workflow_dispatch:
+    inputs:
+      name:
+        description: 'Name'
+        required: true
+        default: 'Juan'
+        type: string
   schedule:
     - cron: '*/5 * * * *'
 
@@ -10,6 +16,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print greetings with current time
-        run: |
-          now=$(date)
-          echo "Hello! The time is $now"
+        run: echo "Hello, ${{ github.event.inputs.name }}! The time is $(date)"
