@@ -1,0 +1,20 @@
+name: Webhook workflow
+
+on:
+  repository_dispatch:
+    event:
+      - deploy
+      - test
+
+jobs:
+  deploy:
+    if: ${{ github.event_name == 'deploy' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo "I''m deploying..."'
+
+  test:
+    if: ${{ github.event_name == 'test' }}
+    runs-on: ubuntu-latest
+    steps:
+      - run: 'echo "I''m testing..."'
