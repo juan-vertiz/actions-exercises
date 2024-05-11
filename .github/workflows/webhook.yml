@@ -2,7 +2,7 @@ name: Webhook workflow
 
 on:
   repository_dispatch:
-    event:
+    types:
       - deploy
       - test
 
