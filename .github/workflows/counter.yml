@@ -2,6 +2,8 @@ name: Counter
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0/5 * * * *'
 
 jobs:
   greetings:
@@ -10,4 +12,4 @@ jobs:
       - name: Print greetings with current time
         run: |
           now=$(date)
-          echo 'Hello! The time is $now'
+          echo "Hello! The time is $now"
