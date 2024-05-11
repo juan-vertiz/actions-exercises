@@ -8,13 +8,13 @@ on:
 
 jobs:
   deploy:
-    if: ${{ github.event_name == 'deploy' }}
+    if: ${{ github.event.event_type == 'deploy' }}
     runs-on: ubuntu-latest
     steps:
       - run: 'echo "I''m deploying..."'
 
   test:
-    if: ${{ github.event_name == 'test' }}
+    if: ${{ github.event.event_type == 'test' }}
     runs-on: ubuntu-latest
     steps:
       - run: 'echo "I''m testing..."'
