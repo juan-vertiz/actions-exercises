@@ -8,6 +8,7 @@ jobs:
   greetings:
     runs-on: ubuntu-latest
     steps:
-      - run: |
+      - name: Print greetings with current time
+        run: |
           now = $(date)
           echo 'Hello! The time is $now'
