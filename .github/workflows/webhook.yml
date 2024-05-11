@@ -10,16 +10,16 @@ jobs:
   log:
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo "${{ toJSON(github.event) }}"'
+      - run: 'echo "Event type is: ${{ github.event.action }}"'
 
   deploy:
-    if: ${{ github.event.event_type == 'deploy' }}
+    if: ${{ github.event.action == 'deploy' }}
     runs-on: ubuntu-latest
     steps:
       - run: 'echo "I''m deploying..."'
 
   test:
-    if: ${{ github.event.event_type == 'test' }}
+    if: ${{ github.event.action == 'test' }}
     runs-on: ubuntu-latest
     steps:
       - run: 'echo "I''m testing..."'
