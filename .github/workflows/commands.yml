@@ -34,4 +34,4 @@ jobs:
         run: |
           echo "---" >> "$GITHUB_STEP_SUMMARY"
           echo "This is the last part of the job summary." >> "$GITHUB_STEP_SUMMARY"
-          echo '> Multiline strings do not work here. Every new line has to be appended with a different \`echo\` command' >> "$GITHUB_STEP_SUMMARY"
+          echo '> Multiline strings do not work here. Every new line has to be appended with a different `echo` command' >> "$GITHUB_STEP_SUMMARY"
