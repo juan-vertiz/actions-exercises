@@ -15,25 +15,23 @@ jobs:
     steps:
       - name: Greetings
         run: |
-          echo "::group::Set Up"
-          echo "## 1. Greetings" >> "$GITHUB_STEP_SUMMARY"
-          echo "Hello, ${{ github.inputs.name }}!"
+          echo "1. Greetings" >> "$GITHUB_STEP_SUMMARY"
+          echo "Hello, ${{ inputs.name }}!"
       - name: Print a warning
         run: |
-          echo "## 2. Log a warning message" >> "$GITHUB_STEP_SUMMARY"
+          echo "1. Log a warning message" >> "$GITHUB_STEP_SUMMARY"
           echo "::warning title=Example warning::This is an empty warning with no file related."
-          echo "::endgroup::"
       - name: Set a step output
         id: job-status
         run: |
-          echo "## 3. Set a step output" >> "$GITHUB_STEP_SUMMARY"
+          echo "1. Set a step output" >> "$GITHUB_STEP_SUMMARY"
           echo "status=FAIL" >> "$GITHUB_OUTPUT"
       - name: Read a previous step output
         run: |
-          echo "## 4. Read a previous step output" >> "$GITHUB_STEP_SUMMARY"
+          echo "1. Read a previous step output" >> "$GITHUB_STEP_SUMMARY"
           echo "${{ steps.job-status.outputs.status }}"
       - name: Clean Up
         run: |
           echo "---" >> "$GITHUB_STEP_SUMMARY"
           echo "This is the last part of the job summary." >> "$GITHUB_STEP_SUMMARY"
-          echo "> Multiline strings do not work here. Every new line has to be appended with a different `echo` command" >> $GITHUB_STEP_SUMMARY
+          echo '> Multiline strings do not work here. Every new line has to be appended with a different \`echo\` command' >> "$GITHUB_STEP_SUMMARY"
